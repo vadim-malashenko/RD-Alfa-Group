@@ -67,8 +67,9 @@ class MysqlTokenStore implements TokenStoreInterface
                 VALUES ('" . implode("'),('", $tokens) . "')
                 ON DUPLICATE KEY UPDATE token = token
             ")
-        )
+        ) {
             throw new \RuntimeException(\mysqli_error($this->dbal()));
+        }
 
         return $this->getTokenIDs($tokens);
     }
@@ -106,8 +107,9 @@ class MysqlTokenStore implements TokenStoreInterface
                 INSERT INTO token_hashes
                 VALUES " . implode(",", $tokenHashes)
             )
-        )
+        ) {
             throw new \RuntimeException(\mysqli_error($this->dbal()));
+        }
     }
 
     protected function getTokenIDs(array $tokens): array
