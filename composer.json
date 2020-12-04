@@ -1,0 +1,16 @@
+{
+  "name": "rdalfagroup/test1",
+  "type": "project",
+  "require": {
+    "php": "7.4.*",
+    "ext-mysqli": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "RDAlfaGroup\\": "src/"
+    },
+    "classmap": [
+      "src"
+    ]
+  }
+}
